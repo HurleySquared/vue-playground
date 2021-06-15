@@ -1,16 +1,28 @@
 const app = Vue.createApp({
   data() {
     return {
-      myName: 'Eric Hurley',
-      age: 27,
-      imageUrl: 'https://images.app.goo.gl/jfx33bt7rosyYX5n8'
-    }
+      counter: 10,
+      name: '',
+      confirmedName: ''
+    };
   },
   methods: {
-    randomNumber() {
-      return Math.random();
+    confirmInput() {
+      this.confirmedName = this.name;
+    },
+    submitForm() {
+      alert('Submitted!');
+    },
+    setName(event, lastName) {
+      this.name = event.target.value + ' ' + lastName;
+    },
+    add(num) {
+      this.counter = this.counter + num;
+    },
+    subtract(num) {
+      this.counter = this.counter - num;
     }
   }
-})
+});
 
-app.mount('#assignment')
+app.mount('#events');
